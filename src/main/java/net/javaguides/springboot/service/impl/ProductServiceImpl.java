@@ -4,6 +4,7 @@ import net.javaguides.springboot.entity.Product;
 import net.javaguides.springboot.repository.ProductRepository;
 import net.javaguides.springboot.service.ProductService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,18 +17,38 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> searchProducts(String query) {
-        List<Product> products = productRepository.searchProducts(query);
-        return products;
-    }
-
-    @Override
     public Product createProduct(Product product) {
         return productRepository.save(product);
     }
 
     @Override
-    public List<Product> searchProductsSQL(String name, String description) {
-        return productRepository.searchProductsSQL(name, description);
+    public List<Product> searchProducts(String ItemName) {
+        return productRepository.searchProducts(ItemName);
     }
+
+    @Override
+    public List<Product> AllProduct() {
+        return productRepository.AllProduct();
+    }
+
+    @Override
+    @Transactional
+    public Product AddProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    @Override
+    public Product UpdateProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    @Override
+    public Product DeleteProduct(Product product) {
+        return productRepository.save(product);
+    }
+
+    // @Override
+    // public List<Product> searchProductsSQL(String name, String description) {
+    // return productRepository.searchProductsSQL(name, description);
+    // }
 }

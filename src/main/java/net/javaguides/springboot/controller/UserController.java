@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
+// import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @PostMapping("/Login")
-    @CrossOrigin("http://192.168.92.147:8088")
+    // @CrossOrigin("http://192.168.92.147:8080")
     public List<Map<String, Object>> UserLogin(@RequestBody User user) {
         String USER_ID = user.getUSER_ID();
         String PassWord = user.getPASSWORD();
