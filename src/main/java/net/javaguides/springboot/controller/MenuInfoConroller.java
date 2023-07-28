@@ -11,7 +11,7 @@ import net.javaguides.springboot.service.MenuInfoService;
 import net.javaguides.springboot.to.MenuInfo;
 
 @RestController
-@RequestMapping("/api/v1/menuinfo")
+@RequestMapping("/VueTestApi/api/v1/menuinfo")
 public class MenuInfoConroller {
     private MenuInfoService menuInfoService;
 

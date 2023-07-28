@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 // import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +29,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/search")
+    @GetMapping("/search1")
     public ResponseEntity<List<User>> searchUsers(@RequestParam String query) {
         System.out.println("成功");
         return ResponseEntity.ok(userService.searchUsers(query));
@@ -41,6 +42,7 @@ public class UserController {
 
     @PostMapping("/Login")
     // @CrossOrigin("http://192.168.92.147:8080")
+    @CrossOrigin("*")
     public List<Map<String, Object>> UserLogin(@RequestBody User user) {
         String USER_ID = user.getUSER_ID();
         String PassWord = user.getPASSWORD();

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/v1/products")
+@RequestMapping("/VueTestApi/api/VueTest")
 public class ProductController {
     private ProductService productService;
 
@@ -57,6 +57,7 @@ public class ProductController {
     }
 
     @PostMapping("/UpdateProduct")
+    @CrossOrigin("*")
     public Map<String, Object> UpdateProduct(@RequestBody Product product) {
         String ItemNo = product.getITEM_NO();
         String ItemName = product.getITEM_NAME();
@@ -80,6 +81,7 @@ public class ProductController {
     }
 
     @PostMapping("/DeleteProduct")
+    @CrossOrigin("*")
     public Map<String, Object> DeleteProduct(@RequestBody Product product) {
         String ItemNo = product.getITEM_NO();
         System.out.println(ItemNo);

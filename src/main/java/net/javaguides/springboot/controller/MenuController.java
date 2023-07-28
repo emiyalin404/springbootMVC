@@ -2,6 +2,7 @@ package net.javaguides.springboot.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +12,7 @@ import net.javaguides.springboot.entity.menu;
 import net.javaguides.springboot.service.MenuService;
 
 @RestController
-@RequestMapping("/api/vi/menu")
+@RequestMapping("/VueTestApi/api/VueTest")
 public class MenuController {
     private MenuService menuService;
 
@@ -19,9 +20,9 @@ public class MenuController {
         this.menuService = menuService;
     }
 
-    @PostMapping("/Allmenu")
+    @PostMapping("/QueryMenuInfoByUser")
+    @CrossOrigin("*")
     public List<menu> Allmenu(@RequestBody menu menu) {
-        System.out.println(menu);
         return menuService.Allmenu();
     }
 

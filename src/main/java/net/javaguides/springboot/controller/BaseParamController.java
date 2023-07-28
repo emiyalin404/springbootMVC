@@ -2,6 +2,7 @@ package net.javaguides.springboot.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +12,7 @@ import net.javaguides.springboot.entity.BaseParam;
 import net.javaguides.springboot.service.BaseParamService;
 
 @RestController
-@RequestMapping("/api/vi/BaseParam")
+@RequestMapping("/api/VueTest")
 public class BaseParamController {
     private BaseParamService baseParamService;
 
@@ -19,12 +20,14 @@ public class BaseParamController {
         this.baseParamService = baseParamService;
     }
 
-    @PostMapping("/SelectOptions")
+    @PostMapping("/VueTestApi/SelectOptions")
+    @CrossOrigin("*")
     public List<BaseParam> allBaseParams(@RequestBody BaseParam baseParam) {
         return baseParamService.allselect();
     }
 
-    @PostMapping("/SelectOption")
+    @PostMapping("/QuerySelectOptions")
+    @CrossOrigin("*")
     public List<BaseParam> SelectOption(@RequestBody String TITLE) {
         System.out.println(TITLE);
         System.out.println(baseParamService.SelectOption(TITLE));
